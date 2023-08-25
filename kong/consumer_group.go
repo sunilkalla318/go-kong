@@ -43,6 +43,15 @@ type ConsumerGroupPlugin struct {
 	ConsumerGroup *ConsumerGroup `json:"consumer_group,omitempty" yaml:"consumer_group,omitempty"`
 }
 
+// Group represents a Group in Kong.
+// +k8s:deepcopy-gen=true
+type Group struct {
+	CreatedAt *int    `json:"created_at,omitempty" yaml:"created_at,omitempty"`
+	ID        *string `json:"id,omitempty" yaml:"id,omitempty"`
+	Name      *string `json:"name,omitempty" yaml:"name,omitempty"`
+	Comment   *string `json:"comment,omitempty" yaml:"comment,omitempty"`
+}
+
 // FriendlyName returns the endpoint key name or ID.
 func (cg *ConsumerGroup) FriendlyName() string {
 	if cg.Name != nil {
